@@ -1,0 +1,58 @@
+<footer class="site-footer">
+  <div class="footer-logos">
+    <div class="logos-grid">
+      <div class="logo-item">
+        <img
+          src="{{ site.baseurl }}/assets/images/logos/IMPERIAL_logo_RGB_Blue_safe_area_2024.png"
+          alt="Imperial College London"
+          class="logo-image"
+        />
+      </div>
+      <div class="logo-item">
+        <img
+          src="{{ site.baseurl }}/assets/images/logos/University_of_Edinburgh-Logo.wine.svg"
+          alt="University of Edinburgh"
+          class="logo-image"
+        />
+      </div>
+      <div class="logo-item logo-item-chai">
+        <img
+          src="{{ site.baseurl }}/assets/images/logos/CHAI_LOGO_-STANDARD.png"
+          alt="CHAI Hub"
+          class="logo-image"
+        />
+      </div>
+      <div class="logo-item">
+        <img
+          src="{{ site.baseurl }}/assets/images/logos/RAEng.png"
+          alt="Royal Academy of Engineering"
+          class="logo-image"
+        />
+      </div>
+      <div class="logo-item">
+        <img
+          src="{{ site.baseurl }}/assets/images/logos/UKRI_EPSR_Council-Logo_Horiz-RGB.png"
+          alt="UKRI EPSRC"
+          class="logo-image"
+        />
+      </div>
+      <div class="logo-item">
+        <img
+          src="{{ site.baseurl }}/assets/images/logos/CERSI_AI_Logo-Medium.png"
+          alt="CERSI AI"
+          class="logo-image"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="footer-content">
+    <p>&copy; {{ 'now' | date: '%Y' }} BioMedIA, Imperial College London.</p>
+    <div class="footer-links">
+      {% if site.author.email %}
+      <a href="mailto:{{ site.author.email }}">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</footer>
