@@ -1,7 +1,7 @@
 title: "RadiT"
 description: "Scaling Generative Foundation Models for Chest Radiography with Rectified Flow Transformers"
-url: "https://yourusername.github.io"
-baseurl: "/RadiT-site"
+url: "https://radit-project.github.io"
+baseurl: ""
 
 author:
   name: "Fabio De Sousa Ribeiro"

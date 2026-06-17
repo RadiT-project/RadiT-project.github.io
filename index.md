@@ -45,7 +45,7 @@ permalink: /
     </div>
 
     <div class="hero-actions">
-      <a href="/assets/paper.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      <a href="{{ '/assets/paper.pdf' | relative_url }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-file-pdf"></i> Read Paper
       </a>
       <a href="https://arxiv.org/abs/2401.01234" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
