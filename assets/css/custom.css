@@ -1238,7 +1238,6 @@ footer.site-footer {
 }
 
 .footer-disclaimer {
-  /* width: min(100%, 1280px); */
   width: 80%;
   margin: 0 auto 1rem;
   padding: 0 clamp(0rem, 3vw, 1.5rem);
@@ -1246,7 +1245,7 @@ footer.site-footer {
 
 .footer-disclaimer p {
   margin: 0;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   line-height: 1.25;
   letter-spacing: 0.01em;
   color: color-mix(in srgb, var(--muted), white 16%);
