@@ -30,7 +30,9 @@
 html {
   scroll-behavior: smooth;
   background: #ffffff;
-  font-size: 88%;
+  font-size: 85%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -73,7 +75,6 @@ select {
 }
 
 .hero-title {
-  /* max-width: min(44ch, 100%); */
   max-width: 1200px;
   font-size: clamp(2.65rem, 3.75vw, 3.25rem) !important;
   line-height: 1.1 !important;
@@ -174,15 +175,10 @@ select {
 }
 
 .hero-meta > span:first-child {
-  font-size: 1rem;
-}
-
-.hero-meta > span:last-child {
-  font-size: 0.97rem;
+  font-size: .98rem;
 }
 
 .hero-tldr {
-  /* margin-top: 1.35rem; */
   padding: 1rem 1.1rem;
   border: 1px solid var(--border);
   border-radius: 0.95rem;
