@@ -8,14 +8,26 @@ document.addEventListener("DOMContentLoaded", function () {
       ? window.siteBaseurl
       : "";
   const imageRoot = `${baseUrl}/assets/images`;
-  const realItems = Array.from(
-    { length: 50 },
-    (_, i) => `${imageRoot}/real/${i}.png`,
-  );
-  const fakeItems = Array.from(
-    { length: 50 },
-    (_, i) => `${imageRoot}/fake/${i}.png`,
-  );
+  const realLateralIndices = new Set([
+    0, 1, 5, 7, 8, 16, 18, 19, 20, 21, 23, 25, 28, 36, 40, 43, 46, 48, 49,
+  ]);
+  const fakeLateralIndices = new Set([
+    0, 1, 2, 4, 5, 7, 8, 11, 16, 18, 19, 20, 21, 23, 25, 28, 36, 40, 46, 48,
+    49,
+  ]);
+
+  function buildItems(kind, lateralIndices) {
+    return Array.from({ length: 50 }, (_, i) => {
+      const isLateral = lateralIndices.has(i);
+      return {
+        src: `${imageRoot}/${kind}/${i}${isLateral ? "-L" : ""}.png`,
+        isLateral,
+      };
+    });
+  }
+
+  const realItems = buildItems("real", realLateralIndices);
+  const fakeItems = buildItems("fake", fakeLateralIndices);
   const pairCount = Math.min(rounds, realItems.length, fakeItems.length);
   const imagePreloadSet = new Set();
 
@@ -28,18 +40,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function buildDeck() {
-    const availableReal = shuffle(realItems.slice());
-    const availableFake = shuffle(fakeItems.slice());
+    const availableReal = {
+      frontal: shuffle(realItems.filter((item) => !item.isLateral).slice()),
+      lateral: shuffle(realItems.filter((item) => item.isLateral).slice()),
+    };
+    const availableFake = {
+      frontal: shuffle(fakeItems.filter((item) => !item.isLateral).slice()),
+      lateral: shuffle(fakeItems.filter((item) => item.isLateral).slice()),
+    };
     const deck = [];
 
     for (let i = 0; i < pairCount; i++) {
-      const realItem = availableReal.pop();
-      const fakeItem = availableFake.pop();
+      const availableViews = ["frontal", "lateral"].filter(
+        (view) => availableReal[view].length > 0 && availableFake[view].length > 0,
+      );
+      const view = availableViews[Math.floor(Math.random() * availableViews.length)];
+      const realItem = availableReal[view].pop();
+      const fakeItem = availableFake[view].pop();
       const fakeOnLeft = Math.random() < 0.5;
 
       deck.push({
-        left: fakeOnLeft ? fakeItem : realItem,
-        right: fakeOnLeft ? realItem : fakeItem,
+        left: fakeOnLeft ? fakeItem.src : realItem.src,
+        right: fakeOnLeft ? realItem.src : fakeItem.src,
         correct: fakeOnLeft ? "left" : "right",
       });
     }
