@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     0, 1, 5, 7, 8, 16, 18, 19, 20, 21, 23, 25, 28, 36, 40, 43, 46, 48, 49,
   ]);
   const fakeLateralIndices = new Set([
-    0, 1, 2, 4, 5, 7, 8, 11, 16, 18, 19, 20, 21, 23, 25, 28, 36, 40, 46, 48,
-    49,
+    0, 1, 2, 4, 5, 7, 8, 11, 16, 18, 19, 20, 21, 23, 28, 36, 40, 46, 48, 49,
   ]);
 
   function buildItems(kind, lateralIndices) {
@@ -52,9 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let i = 0; i < pairCount; i++) {
       const availableViews = ["frontal", "lateral"].filter(
-        (view) => availableReal[view].length > 0 && availableFake[view].length > 0,
+        (view) =>
+          availableReal[view].length > 0 && availableFake[view].length > 0,
       );
-      const view = availableViews[Math.floor(Math.random() * availableViews.length)];
+      const view =
+        availableViews[Math.floor(Math.random() * availableViews.length)];
       const realItem = availableReal[view].pop();
       const fakeItem = availableFake[view].pop();
       const fakeOnLeft = Math.random() < 0.5;
