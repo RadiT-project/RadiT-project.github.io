@@ -130,7 +130,7 @@ permalink: /
       <div class="feature-content">
         <h3>Frontier Generative Foundation Model for Chest Radiography</h3>
         <p>We build a series of scaled rectified flow transformers for chest X-ray generation,
-up to <strong>1.3B</strong> parameters. Our largest model, <strong class="animated-word">RadiT XL</strong>, was trained for <strong>1.6T</strong> tokens attains four-fold FDD and ten-fold
+up to <strong>1.3B</strong> parameters. Our largest model, <strong class="animated-word">RadiT XL</strong>, was trained for <strong>1.6T</strong> tokens and attains four-fold FDD and ten-fold
 KDD improvements over prior state-of-the-art on the CheXGenBench benchmark.</p>
       </div>
       <div class="feature-figures-stack">
